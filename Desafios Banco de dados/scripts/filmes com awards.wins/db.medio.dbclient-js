@@ -1,0 +1,5 @@
+// Active: 1775582068705@@db_camila@null@sample_mflix
+db("sample_mflix").collection("movies").find(
+  { "awards.wins": { $gt: 5 } },
+  { title: 1, "awards.wins": 1, _id: 0 }
+).sort({ "awards.wins": -1 });

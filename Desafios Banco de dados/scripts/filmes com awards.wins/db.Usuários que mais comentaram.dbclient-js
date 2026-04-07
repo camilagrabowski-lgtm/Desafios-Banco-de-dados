@@ -1,0 +1,22 @@
+// Active: 1775582068705@@db_camila@null@sample_mflix
+db("sample_mflix").collection("comments").aggregate([
+  {
+    $group: {
+      _id: "$name",
+      totalComentarios: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      usuario: "$_id",
+      totalComentarios: 1
+    }
+  },
+  {
+    $sort: { totalComentarios: -1 }
+  },
+  {
+    $limit: 5
+  }
+]);

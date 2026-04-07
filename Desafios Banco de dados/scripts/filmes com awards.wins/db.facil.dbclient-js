@@ -1,0 +1,5 @@
+// Active: 1775582068705@@db_camila@null@sample_mflix
+db("sample_mflix").collection("embedded_movies").find(
+  { year: { $gt: 2010 } }
+);
+
